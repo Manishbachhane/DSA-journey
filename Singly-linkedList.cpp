@@ -9,7 +9,7 @@ class SLL
 {
     private:
         node *start;
-    public:
+    public: 
         SLL();
         void insertAtStart(int);
         void insertAtLast(int);

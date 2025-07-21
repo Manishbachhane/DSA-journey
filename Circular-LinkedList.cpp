@@ -122,8 +122,8 @@ void CLL::insertLast(int data){
         last=n;
     }
     else{
+         n->next=n;
         last=n;
-        n->next=n;
     }
 }
 void CLL::insertStart(int data){
