@@ -8,10 +8,17 @@ struct node{
 class BST{
     private:
         node *root;
+    protected:
+        void preorderrec(node*);
+        void inorderrec(node*);
+        void postorderrec(node*);
     public:
         BST();
     bool isEmpty();
     void insert(int);
+    void preorder();
+    void inorder();
+    void postorder();
 }
 BST::BST(){
     root=nullptr;
@@ -55,4 +62,43 @@ void BST::insert(int data){
         if(ptr->item==data)
             delete n;
     }   
+}
+void BST::preorder()
+{
+    preorderrec(root);
+}
+void BST::preorderrec(node *ptr)
+{
+    if(ptr)
+    {
+        cout<<ptr->item<<" ";
+        preorderrec(ptr->left);
+        preorderrec(ptr->right);
+    }
+}
+void BST::inorder()
+{
+    inorderrec(root);
+}
+void BST::inorderrec(node *ptr)
+{
+    if(ptr)
+    {
+        inorderrec(ptr->left);
+        cout<<ptr->item<<" ";
+        inorderrec(ptr->right);
+    }
+}
+void BST::postorder()
+{
+    postorderrec(root);
+}
+void BST::postorderrec(node *ptr)
+{
+    if(ptr)
+    {
+        postorderrec(ptr->left);
+        postorderrec(ptr->right);
+        cout<<ptr->item<<" ";
+    }
 }
